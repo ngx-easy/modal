@@ -1,0 +1,111 @@
+@import '~@angular/material/theming';
+$primary: mat-palette($mat-indigo);
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+$overlay-opacity: .75;
+
+.overlay {
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: $overlay-opacity;
+  animation: fadein 250ms ease-in;
+}
+
+.modal {
+  z-index: 9999;
+  position: absolute;
+  background-color: transparent;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+  height: 300px;
+  width: 400px;
+
+  .header {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background-color: mat-color($primary);
+    border-radius: 10px 10px 0 0;
+
+    .title {
+      float: left;
+      color: white;
+      font-size: 18px;
+    }
+
+    button {
+      float: right;
+      height: 100%;
+      margin-right: 10px;
+      color: white;
+    }
+  }
+
+  .body {
+    width: 100%;
+    height: calc(100% - 100px);
+    overflow-y: auto;
+    background-color: white;
+
+    .content {
+      padding: 20px;
+    }
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: mat-color($primary);
+    display: flex;
+    padding: 10px 0;
+    flex-direction: row-reverse;
+    border-radius: 0 0 10px 10px;
+
+    button {
+      height: 30px;
+      line-height: 30px;
+      margin-right: 20px;
+    }
+  }
+
+  .icon {
+    height: 100%;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: $overlay-opacity;
+  }
+}

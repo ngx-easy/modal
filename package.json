@@ -1,0 +1,11 @@
+{
+  "name": "@ngx-easy/modal",
+  "version": "0.0.1",
+  "private": false,
+  "peerDependencies": {
+    "@angular/common": "^7.x.x",
+    "@angular/core": "^7.x.x",
+    "@angular/material": "~7.x.x",
+    "rxjs": "^6.x.x"
+  }
+}
