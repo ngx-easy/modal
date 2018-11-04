@@ -9,19 +9,18 @@ import { Subscription } from 'rxjs';
 @Injectable()
 export class EasyModalService implements OnDestroy {
 
-  private _closeSubscription: Subscription;
-  public closeEvent = new EventEmitter<void>();
+  public closeRequest: EventEmitter<void>;
 
   constructor(
     private cfr: ComponentFactoryResolver,
     private injector: Injector,
     private appRef: ApplicationRef,
-    @Inject(EasyModalInstanceService) private easyModalInstanceService: EasyModalInstanceService) {
-    this._closeSubscription = this.easyModalInstanceService.closeEvent.subscribe(() => this.closeEvent.emit());
+    @Inject(EasyModalInstanceService) private easyModalInstanceService: EasyModalInstanceService
+  ) {
+    this.closeRequest = this.easyModalInstanceService.closeRequest;
   }
 
   ngOnDestroy() {
-    this._closeSubscription.unsubscribe();
     this.easyModalInstanceService.destroy();
   }
 

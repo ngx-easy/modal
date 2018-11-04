@@ -8,7 +8,6 @@ import { EasyModalInstanceService } from './easy-modal-instance.service';
 
 /**
  * Guard to make sure we have single initialization of forRoot
- * @type {InjectionToken<ModalDialogModule>}
  */
 export const MODAL_DIALOG_FORROOT_GUARD = new InjectionToken<EasyModalModule>('MODAL_DIALOG_FORROOT_GUARD');
 
@@ -35,10 +34,6 @@ export class EasyModalModule {
     }
 }
 
-/**
- * @param dialogModule
- * @returns {string}
- */
 export function provideForRootGuard(dialogModule: EasyModalModule): string {
     if (dialogModule) {
         throw new Error(

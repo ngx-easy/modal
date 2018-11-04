@@ -15,7 +15,7 @@ export class EasyModalComponent {
     private easyModalInstanceService: EasyModalInstanceService
   ) { }
 
-  close() {
-    this.easyModalInstanceService.destroy();
+  overlayClicked() {
+    this.easyModalInstanceService.closeRequest.emit();
   }
 }
